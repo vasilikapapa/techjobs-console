@@ -60,7 +60,7 @@ public class JobData {
     /**
      * Returns results of search the jobs data by key/value, using
      * inclusion of the search term.
-     *
+
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
@@ -97,9 +97,13 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
+        ArrayList<HashMap<String, String>> someJobs=new ArrayList<>();
         // TODO - implement this method
-        return null;
+        for(HashMap<String,String> element: allJobs)
+            if(element.values().contains(value))
+                someJobs.add(element);
+
+        return someJobs;
     }
 
     /**
